@@ -7,10 +7,10 @@ on:
   pull_request:
     types:
       - closed
-    tags: v1
     branches:
       - main
-
+    tags:
+      - v1
 jobs:
   build:
     if: github.event.pull_request.merged == true
