@@ -17,8 +17,8 @@ jobs:
     outputs:
       output1: ${{ steps.build.outputs.result }}
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+    # - name: Checkout Repository
+    #   uses: actions/checkout@v2
 
     - name: Build Docker Image
     - id: build
@@ -29,8 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+    # - name: Checkout Repository
+    #   uses: actions/checkout@v2
 
     - name: Run Basic Tests
       run: echo ${{needs.build.outputs.output1}}
