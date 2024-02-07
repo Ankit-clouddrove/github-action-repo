@@ -1,4 +1,4 @@
-env:x
+env:
   NAME: 'GitHub'
 
 name: Setup Nginx
