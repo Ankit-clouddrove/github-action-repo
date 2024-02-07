@@ -1,5 +1,3 @@
-env:
-  NAME: 'GitHub'
 
 name: Setup-Nginx
 
@@ -57,7 +55,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
     - name: print name
-      run: echo "Hello $NAME. My USER_NAME is ${{env.USER_NAME}}. USER_PASSWORD is ${{env.USER_PASSWORD}}"
+      run: echo "My USER_NAME is ${{env.USER_NAME}}. USER_PASSWORD is ${{env.USER_PASSWORD}}"
 
     - name: Create and Navigate to Directory
       run: |
