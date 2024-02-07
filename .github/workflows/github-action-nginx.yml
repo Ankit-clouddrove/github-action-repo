@@ -1,5 +1,3 @@
-
-
 name: Setup Nginx
 
 on:
@@ -57,9 +55,8 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
-    - name: print name
+    - name: print Secrets
       run: |
-
         echo "USER_NAME=${{ secrets.USER_NAME }}"
         echo "USER_PASSWORD=${{ secrets.USER_PASSWORD }}"
 
