@@ -8,7 +8,7 @@ on:
 
 #      - closed
 #    branches:
-  branches:
+#  branches:
 #    - feature1
 #      - main
 #    tags:
