@@ -59,7 +59,7 @@ jobs:
       run: |
         mkdir github-action-nginx
         cd github-action-nginx
-        touch index.html
+        touch code.html
 
     - name: Update and Upgrade
       run: sudo apt-get update && sudo apt-get upgrade -y
