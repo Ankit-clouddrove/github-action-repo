@@ -1,0 +1,77 @@
+env:
+  NAME: 'GitHub'
+
+name: Setup Nginx
+
+on:
+  pull_request:
+    types:
+      - closed
+    tags: v1
+    branches:
+      - main
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Build Docker Image
+      run: echo "Build successful"
+
+  test:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    needs: build 
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run Basic Tests
+      run: echo "Tests successful!"
+
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    needs: [build,test]
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Deploy to ECR
+      run: echo "Deploy to ECR"
+
+  setup-nginx:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    needs: [build,test,deploy]
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: print name
+      run: echo "Hello $NAME. My USER_NAME is ${{secrets.USER_NAME}}. USER_PASSWORD is ${{secrets.USER_PASSWORD}}"
+
+    - name: Create and Navigate to Directory
+      run: |
+        mkdir github-action-nginx
+        cd github-action-nginx
+
+    - name: Update and Upgrade
+      run: sudo apt-get update && sudo apt-get upgrade -y
+
+    - name: Install Nginx
+      run: sudo apt-get install nginx -y
+
+    - name: Start Nginx
+      run: sudo service nginx start
+
+    - name: staus nginx
+      run: sudo systemctl status nginx
+
+
+
+      
