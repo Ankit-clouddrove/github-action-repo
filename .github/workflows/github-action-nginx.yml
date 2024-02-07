@@ -73,8 +73,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      USER_NAME: ${{ secrets.USER_NAME }}
-      USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+      USER_NAME: ${{ env.USER_NAME }}
+      USER_PASSWORD: ${{ env.USER_PASSWORD }}
     needs: [build,test,deploy]
     steps:
     - name: Checkout Repository
