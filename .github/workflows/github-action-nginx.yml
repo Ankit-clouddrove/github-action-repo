@@ -9,7 +9,7 @@ on:
 #      - closed
 #    branches:
   branches:
-    - feature1
+#    - feature1
 #      - main
 #    tags:
 #      - v1
