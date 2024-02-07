@@ -58,8 +58,8 @@ jobs:
     - name: print name
       run: |
 
-        echo "USER_NAME=${env.USER_NAME}"
-        echo "USER_PASSWORD=${env.USER_PASSWORD}"
+        echo "USER_NAME=${{ secrets.USER_NAME }}"
+        echo "USER_PASSWORD=${{ secrets.USER_PASSWORD }}"
 
     - name: Create and Navigate to Directory
       run: |
