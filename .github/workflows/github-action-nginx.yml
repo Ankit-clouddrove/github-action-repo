@@ -6,7 +6,7 @@ name: Setup Nginx
 on:
   pull_request:
     types:
-       - opened
+      - opened
 #      - closed
 #    branches:
      branches:
