@@ -4,12 +4,11 @@ name: Setup-Nginx
 on:
   push:
     branches:
-      - master
+      - main
 
   pull_request:
     types:
-
-      - closed
+      - opened
     branches:
       - [feature1, prod]
 
