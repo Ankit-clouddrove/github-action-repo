@@ -11,8 +11,8 @@ on:
 
 #      - closed
 #    branches:
-     branches:
-       - feature1
+  branches:
+    - feature1
 #      - main
 #    tags:
 #      - v1
