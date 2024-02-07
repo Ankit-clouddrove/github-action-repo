@@ -14,13 +14,15 @@ jobs:
   build:
 #    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-
+    outputs:
+      output1: ${{ steps.build.outputs.result }}
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
     - name: Build Docker Image
-      run: echo "Build successful"
+    - id: build
+      run: echo "result=Build successful"
 
   test:
 #    if: github.event.pull_request.merged == true
@@ -31,7 +33,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run Basic Tests
-      run: echo "Tests successful!"
+      run: echo ${{needs.build.outputs.output1}}
 
   deploy:
 #    if: github.event.pull_request.merged == true
