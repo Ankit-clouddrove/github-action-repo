@@ -1,7 +1,5 @@
-env:
-  NAME: 'GitHub'
 
-name: Setup Nginx
+name: Setup-Nginx
 
 on:
   pull_request:
@@ -10,8 +8,8 @@ on:
 
 #      - closed
 #    branches:
-  branches:
-    - feature1
+#  branches:
+#    - feature1
 #      - main
 #    tags:
 #      - v1
@@ -47,7 +45,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Deploy to ECR
-      run: echo "Deploy to ECR"
+      run: echo "Deploy to Amazon ECR"
 
   setup-nginx:
 #    if: github.event.pull_request.merged == true
@@ -57,7 +55,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
     - name: print name
-      run: echo "Hello $NAME. My USER_NAME is ${{env.USER_NAME}}. USER_PASSWORD is ${{env.USER_PASSWORD}}"
+      run: echo "My USER_NAME is ${{env.USER_NAME}}. USER_PASSWORD is ${{env.USER_PASSWORD}}"
 
     - name: Create and Navigate to Directory
       run: |
