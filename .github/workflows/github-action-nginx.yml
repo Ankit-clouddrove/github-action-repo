@@ -2,11 +2,14 @@
 name: Setup-Nginx
 
 on:
-  push
+  push:
     branches:
       - master
 
-  pull_request
+  pull_request:
+    types:
+
+      - closed
     branches:
       - [feature1, prod]
 
