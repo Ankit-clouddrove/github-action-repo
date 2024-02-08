@@ -20,7 +20,7 @@ jobs:
 
   #  - name: Build Docker Image
     - id: build
-      run: echo "result=Build successful"
+      run: echo "result=Build successful" >> "$GITHUB_OUTPUT"
 
   test:
 #    if: github.event.pull_request.merged == true
